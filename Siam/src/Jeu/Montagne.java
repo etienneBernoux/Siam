@@ -5,21 +5,14 @@
  */
 package Jeu;
 
-import java.awt.Image;
-
 /**
  *
  * @author cyril_000
  */
-public class Piece {
-    private final double poid;
-    Image image;// à voir comment on fait et la sécu
-    
-    Piece (double poid){
-        this.poid=poid;
-    }
-    double getPoid(){
-        return this.poid;
+public class Montagne extends Piece {
+
+    public Montagne() {
+        super(0.9);
     }
     
 }
