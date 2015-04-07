@@ -12,6 +12,7 @@ package Jeu;
 public class PionJoueur extends Piece{
 
     private int direction; 
+    
     public PionJoueur() {
         super(1);
         direction=0;
