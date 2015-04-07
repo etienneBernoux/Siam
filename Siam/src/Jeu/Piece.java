@@ -12,13 +12,13 @@ import java.awt.Image;
  * @author cyril_000
  */
 public class Piece {
-    private final float poid;
+    private final double poid;
     Image image;// à voir comment on fait et la sécu
     
     Piece (float poid){
         this.poid=poid;
     }
-    float getPoid(){
+    double getPoid(){
         return this.poid;
     }
     
