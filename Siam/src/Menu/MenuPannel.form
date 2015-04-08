@@ -80,6 +80,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe8;gles du jeu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
