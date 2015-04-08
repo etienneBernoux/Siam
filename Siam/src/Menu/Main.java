@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package siam;
+package Menu;
 
 /**
  *
- * @author cyril_000
+ * @author Etienne
  */
-public class Siam {
+public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //test
     }
-    
 }
