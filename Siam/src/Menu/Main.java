@@ -5,6 +5,8 @@
  */
 package Menu;
 
+import java.awt.Frame;
+
 /**
  *
  * @author Etienne
@@ -12,6 +14,11 @@ package Menu;
 public class Main {
 
     public static void main(String[] args) {
-        //test
+        
+        //Frame
+	Frame frame=new Frame();
+                
+         //Chargement
+        
     }
 }
