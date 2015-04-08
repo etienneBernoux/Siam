@@ -42,7 +42,7 @@ public class Regles1Pannel extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Chaque joueur choisit son animal. Les joueurs joueront à tour de rôle.\nAu début du jeu les animaux sont disposés à l'extérieur du plateau et les montagnes au\ncentre du plateau. Les éléphants blancs, animaux sacrés dans le royaume de SIAM\ncommenceront à jouer.\nLes joueurs ne pourront jouer à chaque tour de jeu qu'un seul de leur animal et ne faire\nqu'une des 5 actions suivantes :\n- Entrer un de ses animaux sur le plateau\n- Se déplacer sur une case libre\n- Changer l'orientation de son animal sans changer de case\n- Sortir un de ses animaux disposés sur une case extérieure\n- Se déplacer en poussant d'autres pièces sur le plateau\n");
+        jTextArea1.setText("Le but de Siam est de sortir une montagne du tablier de jeu avec un de ses animaux. Les\npions qui représentent des éléphants et des rhinocéros sont orientés. Ils peuvent se\ndéplacer dans quatre directions. Mais s'ils poussent des adversaires, des montagnes ou\nles deux, ils doivent d'une part être en situation majoritaire, d'autre part orientés dans le\nbon sens.\n\nChaque joueur choisit son animal. Les joueurs joueront à tour de rôle.\nAu début du jeu les animaux sont disposés à l'extérieur du plateau et les montagnes au\ncentre du plateau. Les éléphants blancs, animaux sacrés dans le royaume de SIAM\ncommenceront à jouer.\nLes joueurs ne pourront jouer à chaque tour de jeu qu'un seul de leur animal et ne faire\nqu'une des 5 actions suivantes :\n- Entrer un de ses animaux sur le plateau\n- Se déplacer sur une case libre\n- Changer l'orientation de son animal sans changer de case\n- Sortir un de ses animaux disposés sur une case extérieure\n- Se déplacer en poussant d'autres pièces sur le plateau\n\nLe nombre de pièces pousses doit être inferieures aux pièces \"poussantes\".");
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton2.setText("Suivant");
@@ -51,31 +51,30 @@ public class Regles1Pannel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jLabel1)
-                        .addGap(0, 239, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(227, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(221, 221, 221))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(27, 27, 27))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
