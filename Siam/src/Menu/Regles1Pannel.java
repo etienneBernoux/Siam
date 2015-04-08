@@ -31,7 +31,6 @@ public class Regles1Pannel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
 
         jButton1.setText("Retour");
 
@@ -44,8 +43,6 @@ public class Regles1Pannel extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jTextArea1.setText("Le but de Siam est de sortir une montagne du tablier de jeu avec un de ses animaux. Les\npions qui représentent des éléphants et des rhinocéros sont orientés. Ils peuvent se\ndéplacer dans quatre directions. Mais s'ils poussent des adversaires, des montagnes ou\nles deux, ils doivent d'une part être en situation majoritaire, d'autre part orientés dans le\nbon sens.\n\nChaque joueur choisit son animal. Les joueurs joueront à tour de rôle.\nAu début du jeu les animaux sont disposés à l'extérieur du plateau et les montagnes au\ncentre du plateau. Les éléphants blancs, animaux sacrés dans le royaume de SIAM\ncommenceront à jouer.\nLes joueurs ne pourront jouer à chaque tour de jeu qu'un seul de leur animal et ne faire\nqu'une des 5 actions suivantes :\n- Entrer un de ses animaux sur le plateau\n- Se déplacer sur une case libre\n- Changer l'orientation de son animal sans changer de case\n- Sortir un de ses animaux disposés sur une case extérieure\n- Se déplacer en poussant d'autres pièces sur le plateau\n\nLe nombre de pièces pousses doit être inferieures aux pièces \"poussantes\".");
         jScrollPane1.setViewportView(jTextArea1);
-
-        jButton2.setText("Suivant");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,9 +60,7 @@ public class Regles1Pannel extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(27, 27, 27))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,9 +70,7 @@ public class Regles1Pannel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -85,7 +78,6 @@ public class Regles1Pannel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
