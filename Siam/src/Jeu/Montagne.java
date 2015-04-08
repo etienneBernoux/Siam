@@ -13,7 +13,7 @@ public class Montagne extends Piece {
 
     public Montagne() {
         super(0.9);
-        //image=setImage(2,direction);
+        //image=getImage(2,direction); //osef de direction
     }
     
 }

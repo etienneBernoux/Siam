@@ -13,7 +13,7 @@ public class Elephant extends PionJoueur {
 
     public Elephant() {
         super();
-        //image=setImage(1,direction);
+        //image=getImage(1,direction);
     }
     
 }

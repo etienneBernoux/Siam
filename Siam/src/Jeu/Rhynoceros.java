@@ -13,6 +13,6 @@ public class Rhynoceros extends PionJoueur {
 
     public Rhynoceros() {
         super();
-        //image=setImage(0,direction);
+        //image=getImage(0,direction);
     }
 }
