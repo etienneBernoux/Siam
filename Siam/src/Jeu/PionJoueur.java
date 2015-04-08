@@ -9,10 +9,14 @@ package Jeu;
  *
  * @author cyril_000
  */
-public class PionJoueur extends Piece{
+public class PionJoueur extends Piece {
 
-    private int direction; 
-    
+    private int direction;
+    public static final int BAS = 0;
+    public static final int DROITE = 1;
+    public static final int HAUT = 2;
+    public static final int GAUCHE = 3;
+
     public PionJoueur() {
         super(1);
         direction=0;

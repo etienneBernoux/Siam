@@ -9,11 +9,10 @@ package Jeu;
  *
  * @author cyril_000
  */
-public class Main {
+public class TestJeu {
     public static void main(){
+        //Initialisation
         
-    }
-    public void run(Joueur joueur){
         
     }
 }
