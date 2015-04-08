@@ -20,5 +20,20 @@ public class DonneesGraphique {
     
     DonneesGraphique(){
         //chargement des images
+        
+    }
+    Image getImage(int type, int direction){
+        switch (type){
+            case 0:
+                return imageRhyno.get(direction);
+            case 1:
+                return imageElephant.get(direction);
+            case 2:
+                return imageMontagne;
+            case 3:
+                return imagePlateau;
+                
+        }   
+        return null;
     }
 }
