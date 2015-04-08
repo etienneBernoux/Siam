@@ -58,4 +58,9 @@ public class Case {
         return y;
     }
 
+    public int getTypeContenue() {
+        return typeContenue;
+    }
+    
+
 }
