@@ -30,9 +30,6 @@ public class DonneesGraphique {
                 return imageElephant.get(direction);
             case 2:
                 return imageMontagne;
-            case 3:
-                return imagePlateau;
-                
         }   
         return null;
     }
