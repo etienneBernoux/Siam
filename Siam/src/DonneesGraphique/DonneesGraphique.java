@@ -13,16 +13,16 @@ import java.util.ArrayList;
  * @author cyril_000
  */
 public class DonneesGraphique {
-    ArrayList<Image> imageElephant;
-    ArrayList<Image> imageRhyno;
-    Image imageMontagne;
-    Image imagePlateau;
+    private ArrayList<Image> imageElephant;
+    private ArrayList<Image> imageRhyno;
+    private Image imageMontagne;
+    private Image imagePlateau;
     
     DonneesGraphique(){
         //chargement des images
         
     }
-    Image getImage(int type, int direction){
+    public Image getImage(int type, int direction){
         switch (type){
             case 0:
                 return imageRhyno.get(direction);
