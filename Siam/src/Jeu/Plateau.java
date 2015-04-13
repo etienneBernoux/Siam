@@ -5,6 +5,7 @@
  */
 package Jeu;
 
+import static Jeu.Case.ELEPHANT;
 import static Jeu.Case.MONTAGNE;
 import static Jeu.Case.RHYNOCEROS;
 import static Jeu.Case.VIDE;
@@ -140,19 +141,6 @@ public class Plateau {
         return val;
     }
 
-    public boolean testEntreePion(int x, int y, int noPion, Plateau plateau, int joueur) {
-        boolean test;
-        if (testCasePlateau(noPion, noPion, joueur, plateau) == joueur) {
-            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
-                return true;
-            } else if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
-
-            }
-        }
-
-        return false;
-    }
-
     public int modifX(int x, int direction) {
         switch (direction) {
             case DROITE:
@@ -177,22 +165,54 @@ public class Plateau {
         return y;
     }
 
-    public float calculPoid(int x, int y, Plateau plateau, int direction, int joueur, float poid) {
-        if (MONTAGNE == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
-            poid = (float) (poid + 0.9);
+    public int invJoueur(int joueur) {
+        if (joueur == RHYNOCEROS) {
+            return ELEPHANT;
+        }
+        return RHYNOCEROS;
+    }
 
-        } else if (RHYNOCEROS == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
+    public float calculPoid(int x, int y, Plateau plateau, int direction, int joueur, float poid) {
+
+        if (MONTAGNE == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
+            poid = (float) (calculPoid(modifX(x, direction), modifY(y, direction), plateau, direction, joueur, poid) - 0.9);
+
+        } else if (joueur == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
+            poid = (float) (calculPoid(modifX(x, direction), modifY(y, direction), plateau, direction, joueur, poid) + 1);
+        } else if (invJoueur(joueur) == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
+            poid = (float) (calculPoid(modifX(x, direction), modifY(y, direction), plateau, direction, joueur, poid) - 1);
         }
         return poid;
 
     }
 
     public boolean testMouvementMontagne(int x, int y, Plateau plateau, int direction, int joueur) {
-        float poid1 = 1;
+        float poid = 1;
         if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
-            poid1 = (float) (poid1 - 0.9);
-
+            poid = calculPoid(x, y, plateau, direction, joueur, poid);
+            poid = calculPoid(x, y, plateau, PionJoueur.invDirection(direction), joueur, poid);
+            if (poid > 0) {
+                return true;
+            }
         }
+        return false;
+    }
+
+    public boolean testBord(int x, int y, Plateau plateau) {
+        return x == 0 || y == 0 || (y - 1 == plateau.getHauteur()) || x - 1
+                == plateau.getLongueur();
+    }
+
+    public boolean testEntreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
+        boolean test;
+        if (testCasePlateau(noPion, noPion, joueur, plateau) == joueur && testBord(x, y, plateau)) {
+            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
+                return true;
+            } else if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE && testMouvementMontagne(x, y, plateau, direction, joueur)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
