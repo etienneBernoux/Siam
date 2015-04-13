@@ -6,6 +6,7 @@
 package Jeu;
 
 import static Jeu.Case.MONTAGNE;
+import static Jeu.Case.RHYNOCEROS;
 import static Jeu.Case.VIDE;
 import static Jeu.PionJoueur.BAS;
 import static Jeu.PionJoueur.DROITE;
@@ -16,7 +17,7 @@ import static Jeu.PionJoueur.HAUT;
  *
  * @author Etienne
  */
-public class Plateau{
+public class Plateau {
 
     private Case[][] casePlateau;
     private Case[] caseRhino;
@@ -55,7 +56,8 @@ public class Plateau{
         }
 
     }
-     /**
+
+    /**
      * @return the casePlateau
      */
     public Case[][] getCasePlateau() {
@@ -75,8 +77,34 @@ public class Plateau{
     public Case[] getCaseElephant() {
         return caseElephant;
     }
-    
-    
+
+    /**
+     * @return the longueur
+     */
+    public int getLongueur() {
+        return longueur;
+    }
+
+    /**
+     * @return the hauteur
+     */
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    /**
+     * @return the nbRhyno
+     */
+    public int getNbRhyno() {
+        return nbRhyno;
+    }
+
+    /**
+     * @return the nbEleph
+     */
+    public int getNbEleph() {
+        return nbEleph;
+    }
 
     /**
      * entre pion,on entre un pion sur le terrain
@@ -91,15 +119,21 @@ public class Plateau{
         int val = 0;
         switch (type) {
             case 0:
-                if (x > plateau. || x <= 0) {
+                if (plateau.getNbRhyno() <= x || x <= 0) {
                     return (-1);
                 }
-                    val = plateau.caseRhino[x].getTypeContenue();
+                val = plateau.caseRhino[x].getTypeContenue();
                 break;
             case 1:
+                if (plateau.getNbEleph() <= x || x <= 0) {
+                    return (-1);
+                }
                 val = plateau.caseElephant[x].getTypeContenue();
                 break;
             case 2:
+                if ((plateau.getHauteur() <= x || x <= 0) && (plateau.getLongueur() <= y || y <= -1)) {
+                    return (-1);
+                }
                 val = plateau.casePlateau[x][y].getTypeContenue();
                 break;
         }
@@ -143,28 +177,27 @@ public class Plateau{
         return y;
     }
 
-    public int calculPoid(int x, int y, Plateau plateau, int direction, int joueur, int poid) {
-        if (MONTAGNE == plateau.testCasePlateau(modifX(x,direction), modifY(y,direction), 2, plateau)) {
+    public float calculPoid(int x, int y, Plateau plateau, int direction, int joueur, float poid) {
+        if (MONTAGNE == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
+            poid = (float) (poid + 0.9);
 
+        } else if (RHYNOCEROS == plateau.testCasePlateau(modifX(x, direction), modifY(y, direction), 2, plateau)) {
         }
         return poid;
+
     }
 
     public boolean testMouvementMontagne(int x, int y, Plateau plateau, int direction, int joueur) {
         float poid1 = 1;
-        float poid2 = 0;
         if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
-            poid2 = (float) (poid2 + 0.9);
+            poid1 = (float) (poid1 - 0.9);
 
         }
         return false;
     }
 
     public void entreePion(int x, int y, int noPion, Plateau plateau, int direction) {
-      
+
     }
 
-   
-    
 }
-
