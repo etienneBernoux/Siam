@@ -216,7 +216,7 @@ public class Plateau {
     }
     
     public void bougerPiece
-
+            
     public void entreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
         if(testEntreePion(x,y,noPion,plateau,joueur,direction)){
             if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
@@ -239,5 +239,4 @@ public class Plateau {
             }
         }
     }
-
 }

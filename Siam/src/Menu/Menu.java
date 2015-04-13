@@ -11,12 +11,12 @@ import java.awt.Frame;
  *
  * @author Etienne
  */
-public class Main {
+public class Menu {
 
     public static void main(String[] args) {
         
         //Frame
-	Frame frame=new Frame();
+	Run frame=new Run();
                 
          //Chargement
         

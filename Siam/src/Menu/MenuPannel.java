@@ -14,7 +14,7 @@ public class MenuPannel extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    public MenuPannel() {
+    public MenuPannel(Run up){
         initComponents();
     }
 
@@ -39,6 +39,7 @@ public class MenuPannel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Jouer");
         jButton1.setToolTipText("");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -83,7 +84,7 @@ public class MenuPannel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        new NomJoueur().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
