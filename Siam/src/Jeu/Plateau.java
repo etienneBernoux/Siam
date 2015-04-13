@@ -190,7 +190,6 @@ public class Plateau {
         float poid = 1;
         if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
             poid = calculPoid(x, y, plateau, direction, joueur, poid);
-            poid = calculPoid(x, y, plateau, PionJoueur.invDirection(direction), joueur, poid);
             if (poid > 0) {
                 return true;
             }
@@ -215,9 +214,30 @@ public class Plateau {
 
         return false;
     }
+    
+    public void bougerPiece
 
-    public void entreePion(int x, int y, int noPion, Plateau plateau, int direction) {
-
+    public void entreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
+        if(testEntreePion(x,y,noPion,plateau,joueur,direction)){
+            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
+                if(joueur==RHYNOCEROS){
+                    
+                }
+                else{
+                    System.out.println("Elephant en"+x +" "+y);
+                    
+                    plateau.caseElephant[noPion].setTypeContenue(VIDE);
+                    plateau.casePlateau[x][y].setTypeContenue(ELEPHANT);
+                    
+                    Piece piece= plateau.caseElephant[noPion].getPiece();
+                    plateau.casePlateau[x][y].setPiece(piece);
+                    plateau.caseElephant[noPion].setPiece(null);
+                }
+               
+            } else if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE && testMouvementMontagne(x, y, plateau, direction, joueur)) {
+                
+            }
+        }
     }
 
 }
