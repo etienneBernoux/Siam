@@ -5,73 +5,57 @@
  */
 package Jeu;
 
+import static Jeu.Case.MONTAGNE;
+import static Jeu.Case.VIDE;
+import static Jeu.PionJoueur.BAS;
+import static Jeu.PionJoueur.DROITE;
+import static Jeu.PionJoueur.GAUCHE;
+import static Jeu.PionJoueur.HAUT;
+
 /**
  *
  * @author Etienne
  */
-public class Plateau {
+public class Plateau{
 
     private Case[][] casePlateau;
     private Case[] caseRhino;
     private Case[] caseElephant;
+    private int longueur;
+    private int hauteur;
+    private int nbRhyno;
+    private int nbEleph;
 
     public Plateau(int x, int y, int nbRhyno, int nbEleph) {
-        casePlateau=new Case [x][y];
-        caseRhino=new Case [nbRhyno];
-        caseElephant=new Case [nbEleph];
-        for (int i=0; i < x; i++) {
+        this.longueur = x;
+        this.hauteur = y;
+        this.nbRhyno = nbRhyno;
+        this.nbEleph = nbEleph;
+        this.casePlateau = new Case[x][y];
+        this.caseRhino = new Case[nbRhyno];
+        this.caseElephant = new Case[nbEleph];
+        for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                if(i!=0 && i!=x-1 && j==(y/2)){
-                this.casePlateau[i][j] = new Case(i,j,2);
-                System.out.println("Creation d'une montagne en "+i +"-"+j);
+                if (i != 0 && i != x - 1 && j == (y / 2)) {
+                    this.casePlateau[i][j] = new Case(i, j, 2);
+                    System.out.println("Creation d'une montagne en " + i + "-" + j);
+                } else {
+                    this.casePlateau[i][j] = new Case(i, j, 3);
+                    System.out.println("Creation d'une case vide en " + i + "-" + j);
                 }
-                else{
-                this.casePlateau[i][j] = new Case(i,j,3);
-                System.out.println("Creation d'une case vide en "+i +"-"+j);
-                }
-                
             }
         }
-        for (int i=0; nbRhyno > i; i++) {
-        this.caseRhino[i] = new Case(i,0,0);
-        System.out.println("Creation du "+i +"eme Rhyno");
+        for (int i = 0; nbRhyno > i; i++) {
+            this.caseRhino[i] = new Case(i, 0, 0);
+            System.out.println("Creation du " + i + "eme Rhyno");
         }
-        for (int i=0; nbEleph > i; i++) {
-        this.caseElephant[i] = new Case(i,0,1);
-        System.out.println("Creation du "+i +"eme Eleph");
+        for (int i = 0; nbEleph > i; i++) {
+            this.caseElephant[i] = new Case(i, 0, 1);
+            System.out.println("Creation du " + i + "eme Eleph");
         }
-        
-    }
-    
-    /**
-     * entre pion,on entre un pion sur le terrain
-     * @param x
-     * @param y
-     * @param type
-     * @param plateau
-     * @return 
-     */
-    public int testCase(int x,int y,int type,Plateau plateau){
-        int val=0;
-        switch (type){
-            case 0: val= plateau.caseRhino[x].getTypeContenue();
-                break;
-            case 1: val= plateau.caseElephant[x].getTypeContenue();
-                break;
-            case 2: val= plateau.casePlateau[x][y].getTypeContenue();
-                break;
-        }
-        return val;
-    }
-    public boolean testEntreePion(int x,int y,int noPion,Plateau plateau,int joueur){
-        boolean test;
-        if (joueur==0 &&  )
-    }
-    public void entreePion(int x,int y,int noPion,Plateau plateau,int direction){
-        
-    }
 
-    /**
+    }
+     /**
      * @return the casePlateau
      */
     public Case[][] getCasePlateau() {
@@ -91,4 +75,96 @@ public class Plateau {
     public Case[] getCaseElephant() {
         return caseElephant;
     }
+    
+    
+
+    /**
+     * entre pion,on entre un pion sur le terrain
+     *
+     * @param x
+     * @param y
+     * @param type
+     * @param plateau
+     * @return val ou -1 si case impossible
+     */
+    public int testCasePlateau(int x, int y, int type, Plateau plateau) {
+        int val = 0;
+        switch (type) {
+            case 0:
+                if (x > plateau. || x <= 0) {
+                    return (-1);
+                }
+                    val = plateau.caseRhino[x].getTypeContenue();
+                break;
+            case 1:
+                val = plateau.caseElephant[x].getTypeContenue();
+                break;
+            case 2:
+                val = plateau.casePlateau[x][y].getTypeContenue();
+                break;
+        }
+        return val;
+    }
+
+    public boolean testEntreePion(int x, int y, int noPion, Plateau plateau, int joueur) {
+        boolean test;
+        if (testCasePlateau(noPion, noPion, joueur, plateau) == joueur) {
+            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
+                return true;
+            } else if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
+
+            }
+        }
+
+        return false;
+    }
+
+    public int modifX(int x, int direction) {
+        switch (direction) {
+            case DROITE:
+                x++;
+                break;
+            case GAUCHE:
+                x--;
+                break;
+        }
+        return x;
+    }
+
+    public int modifY(int y, int direction) {
+        switch (direction) {
+            case HAUT:
+                y++;
+                break;
+            case BAS:
+                y--;
+                break;
+        }
+        return y;
+    }
+
+    public int calculPoid(int x, int y, Plateau plateau, int direction, int joueur, int poid) {
+        if (MONTAGNE == plateau.testCasePlateau(modifX(x,direction), modifY(y,direction), 2, plateau)) {
+
+        }
+        return poid;
+    }
+
+    public boolean testMouvementMontagne(int x, int y, Plateau plateau, int direction, int joueur) {
+        float poid1 = 1;
+        float poid2 = 0;
+        if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE) {
+            poid2 = (float) (poid2 + 0.9);
+
+        }
+        return false;
+    }
+
+    public void entreePion(int x, int y, int noPion, Plateau plateau, int direction) {
+      
+    }
+
+   
+    
 }
+
