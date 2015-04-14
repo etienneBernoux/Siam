@@ -203,7 +203,6 @@ public class Plateau {
     }
 
     public boolean testEntreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
-        boolean test;
         if (testCasePlateau(noPion, noPion, joueur, plateau) == joueur && testBord(x, y, plateau)) {
             if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
                 return true;
@@ -214,31 +213,75 @@ public class Plateau {
 
         return false;
     }
-    
-    public void bougerPiece(){
-        
-    }
-            
-    public void entreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
-        if(testEntreePion(x,y,noPion,plateau,joueur,direction)){
-            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
-                if(joueur==RHYNOCEROS){
-                    
+
+    public boolean testBougerPiece(int x1, int y1, int x2, int y2, Plateau plateau, int direction) {
+        if (plateau.getCasePlateau()[x1][y1].getTypeContenue() == ELEPHANT || plateau.getCasePlateau()[x1][y1].getTypeContenue() == RHYNOCEROS) {
+            if (testCasePlateau(x1, y1, 2, plateau) == -1 || testCasePlateau(x2, y2, 2, plateau) == -1) {
+                return false;
+            }
+            if (direction == ((PionJoueur) plateau.getCasePlateau()[x1][y1].getPiece()).getDirection()) {
+                if (x1 == x2 && (y1 == y2 + 1 || y1 == y2 - 1)) {
+
                 }
-                else{
-                    System.out.println("Elephant en"+x +" "+y);
-                    
+            }
+        }
+        return false;
+    }
+
+    public void bougerPiece(int x1, int y1, int x2, int y2, Plateau plateau, int direction) {
+
+    }
+
+    public void entreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
+        if (testEntreePion(x, y, noPion, plateau, joueur, direction)) {
+            if (plateau.testCasePlateau(x, y, 2, plateau) == VIDE) {
+                if (joueur == RHYNOCEROS) {
+
+                } else {
+                    System.out.println("Elephant en" + x + " " + y);
+
                     plateau.caseElephant[noPion].setTypeContenue(VIDE);
                     plateau.casePlateau[x][y].setTypeContenue(ELEPHANT);
-                    
-                    Piece piece= plateau.caseElephant[noPion].getPiece();
+
+                    Piece piece = plateau.caseElephant[noPion].getPiece();
                     plateau.casePlateau[x][y].setPiece(piece);
                     plateau.caseElephant[noPion].setPiece(null);
                 }
-               
+
             } else if (plateau.testCasePlateau(x, y, 2, plateau) == MONTAGNE && testMouvementMontagne(x, y, plateau, direction, joueur)) {
-                
+
             }
+        }
+    }
+
+    public void afficherPlateau() {
+
+        for (int i = 0; i < this.longueur + 8; i++) {
+            System.out.print("*");
+        }
+        System.out.print("\n*");
+        for (int i = 0; i < this.longueur + 6; i++) {
+            System.out.print(" ");
+        }
+        System.out.print("*\n");
+        for (int j = 0; j < this.hauteur; j++) {
+            System.out.print("* ");
+            System.out.print(+this.getCaseElephant()[j].getTypeContenue());
+            System.out.print(" ");
+            for (int i = 0; i < this.longueur; i++) {
+                System.out.print(+this.getCasePlateau()[j][i].getTypeContenue());
+            }
+            System.out.print(" ");
+            System.out.print(+this.getCaseRhino()[j].getTypeContenue());
+            System.out.print(" *\n"); 
+        }
+        System.out.print("*");
+        for (int i = 0; i < this.longueur + 6; i++) {
+            System.out.print(" ");
+        }
+        System.out.print("*\n");
+        for (int i = 0; i < this.longueur + 8; i++) {
+            System.out.print("*");
         }
     }
 }
