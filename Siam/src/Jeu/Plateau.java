@@ -215,7 +215,9 @@ public class Plateau {
         return false;
     }
     
-    public void bougerPiece
+    public void bougerPiece(){
+        
+    }
             
     public void entreePion(int x, int y, int noPion, Plateau plateau, int joueur, int direction) {
         if(testEntreePion(x,y,noPion,plateau,joueur,direction)){
