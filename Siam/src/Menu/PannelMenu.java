@@ -16,6 +16,7 @@ public class PannelMenu extends javax.swing.JPanel {
      */
     public PannelMenu(Run up){
         initComponents(up);
+        this.setVisible(true);
     }
 
     /**

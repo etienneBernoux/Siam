@@ -16,6 +16,7 @@ public class PannelRegles extends javax.swing.JPanel {
      */
     public PannelRegles(Run up) {
         initComponents(up);
+        this.setVisible(true);
     }
 
     /**

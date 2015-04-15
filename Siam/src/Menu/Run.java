@@ -13,25 +13,30 @@ import javax.swing.*;
  * @author cyril_000
  */
 public class Run extends JFrame{
-    CardLayout c1= new CardLayout();
-    JPanel content = new JPanel();
+    CardLayout c1;
+    JPanel content;
     //Liste des noms de nos conteneurs pour la pile de cartes
     String[] listContent = {"Menu", "Regles", "Joueurs"};
-    int indice = 0;
+    PannelMenu menu;
+    PannelNomJoueur joue;
+    PannelRegles regles;
     public Run (){
+        c1= new CardLayout();
+        content = new JPanel();
         this.setTitle("Siam");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800,600);
-        PannelMenu menu= new PannelMenu(this);
-        PannelNomJoueur joue= new PannelNomJoueur(this);
-        PannelRegles regles=new PannelRegles(this);
+        this.setLocationRelativeTo(null);
+        menu= new PannelMenu(this);
+        joue= new PannelNomJoueur(this);
+        regles=new PannelRegles(this);
         
         content.setLayout(c1);
         //On ajoute les cartes à la pile avec un nom pour les retrouver
         content.add(menu, listContent[0]);
         content.add(regles, listContent[1]);
         content.add(joue, listContent[2]);
-        this.change(listContent[0]);
+        c1.show(content,listContent[0]);
         this.setVisible(true);
         
     }

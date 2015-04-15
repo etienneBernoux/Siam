@@ -19,7 +19,7 @@ public class Case {
     public static final int RHYNOCEROS = 0;
     public static final int ELEPHANT = 1;
     public static final int MONTAGNE = 2;
-    public static final int VIDE = 2;
+    public static final int VIDE = 3;
 
     public Case(int x, int y, int typeContenue) {
         this.x = x;

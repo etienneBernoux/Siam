@@ -16,6 +16,7 @@ public class PannelNomJoueur extends javax.swing.JPanel {
      */
     public PannelNomJoueur(Run up) {
         initComponents(up);
+        this.setVisible(true);
     }
 
     /**

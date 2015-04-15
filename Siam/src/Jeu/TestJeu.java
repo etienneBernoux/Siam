@@ -10,9 +10,10 @@ package Jeu;
  * @author cyril_000
 */
 public class TestJeu {
-     public static void main(String[] args) {
+    /*public static void main(String[] args) {
         //Initialisation
         Plateau plateau= new Plateau(5,5,5,5);
         
     }
+    */
 }
